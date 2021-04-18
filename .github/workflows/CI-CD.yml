@@ -28,7 +28,7 @@ jobs:
       run:  cd frontend && npm install
       
     - name: install react
-      run: npm install --save react react-dom
+      run: cd frontend && npm install --save react react-dom
 
     - name: Run the tests
       run: cd frontend && npm test
