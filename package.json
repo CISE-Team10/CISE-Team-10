@@ -2,7 +2,7 @@
   "name": "cise-team-10",
   "version": "1.0.0",
   "description": "The product will be developed collaboratively using Scrum framework as an iterative and incremental way of developing the product in our small team.",
-  "main": "index.js",
+  "main": "/frontend/src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd frontend && npm run start"
