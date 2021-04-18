@@ -24,11 +24,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
+    - name: Install frontend dependencies
       run:  cd frontend && npm install
       
+    - name: Install dependencies
+      run:  npm install    
+      
     - name: install react
-      run: npm install --save react react-dom
+      run: cd frontend && npm install --save react react-dom
 
     - name: Run the tests
       run: cd frontend && npm test
