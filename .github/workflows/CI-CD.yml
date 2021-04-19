@@ -26,23 +26,9 @@ jobs:
 
     - name: delete the package-lock.json
       run: cd frontend && rm -rf package-lock.json
-
-    - name: install frontend 
-      run:  cd frontend && npm install
-      
-    - name: install fronted react-script
-      run: cd frontend && npm install -g create-react-app
       
     - name: Install frontend dependencies
-      run:  cd frontend && npm install -D
-      
-    - name: Intsall frontend dev dependencies
-      run: cd frontend && npm install -P
-      
-   
-      
-    - name: Install dependencies
-      run:  npm install     
+      run:  cd frontend && npm install  
 
     - name: Run the tests
       run: cd frontend && npm test
