@@ -31,7 +31,7 @@ jobs:
       run:  cd frontend && npm install
       
     - name: install fronted react-script
-      run: cd frontedn && npm install -g create-react-app
+      run: cd frontend && npm install -g create-react-app
       
     - name: Install frontend dependencies
       run:  cd frontend && npm install -D
