@@ -42,7 +42,7 @@ jobs:
     - name: delete the package-lock.json
       run: cd frontend && rm -rf yarn.lock 
       
-    - name: Deploy to Heroku
+    - name: Deploy Frontend to Heroku
       uses: AkhileshNS/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -50,3 +50,12 @@ jobs:
         heroku_email: "njm7162@autuni.ac.nz"
         heroku_branch: "main"
         appdir: "frontend"
+    
+    - name: Deploy Backend to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "seeds-2021-api" #Must be unique in Heroku
+        heroku_email: "njm7162@autuni.ac.nz"
+        heroku_branch: "main"
+        appdir: "backend"
