@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+require('dotenv').config();
 
+const webUrl = process.env.WEB_URL || 'http://localhost:8082';
 
 class CreateBook extends Component {
   constructor() {
@@ -34,7 +36,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('https://seeds-2021-api.herokuapp.com/api/books', data)
+      .post(webUrl + '/api/books', data)
       .then(res => {
         this.setState({
           title: '',

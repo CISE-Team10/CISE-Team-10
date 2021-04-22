@@ -3,6 +3,9 @@ import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
+require('dotenv').config()
+
+const webUrl = process.env.WEB_URL || 'http://localhost:8082';
 
 class ShowBookList extends Component {
   constructor(props) {
@@ -14,7 +17,7 @@ class ShowBookList extends Component {
 
   componentDidMount() {
     axios
-      .get('https://seeds-2021-api.herokuapp.com/api/books')
+      .get(webUrl + '/api/books')
       .then(res => {
         this.setState({
           books: res.data
@@ -23,7 +26,7 @@ class ShowBookList extends Component {
       .catch(err =>{
         console.log('Error from ShowBookList');
       })
-  };
+  }
 
 
   render() {
