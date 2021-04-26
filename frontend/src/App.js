@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import Search from './search';
 
 import CreateBook from './components/CreateBook';
 import ShowBookList from './components/ShowBookList';
@@ -22,4 +23,11 @@ class App extends Component {
   }
 }
 
+const App = () => {
+  return (
+      <Search />
+  );
+}
+
+export default App;
 export default App;
