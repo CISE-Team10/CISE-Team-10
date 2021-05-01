@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import ArticleCard from './ArticleCard';
+import ArticleTable from './ArticleTable'
+import {TextField } from '@material-ui/core';
 //import search from './search';
+
 
 class ShowarticleList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article: []
+      article: [],
+      fullArticle: []
     };
+   
   }
 
   componentDidMount() {
@@ -18,26 +22,42 @@ class ShowarticleList extends Component {
       .get('http://localhost:8082/api/articles')
       .then(res => {
         this.setState({
-          article: res.data
+          article: res.data,
+          fullArticle: res.data
         })
       })
       .catch(err =>{
         console.log('Error from ShowarticleList');
-      })
-  };
+      })      
+  }
 
 
   render() {
-    const article = this.state.article;
+    var article = this.state.article;
     console.log("PrintBook: " + article);
     let articleList;
 
-    if(!article) {
+    const handleChange = (event) => {
+      console.log(event.target.value);    
+
+      var fullArticle = this.state.fullArticle;
+      var searchresult = fullArticle.filter(one => one.title.toLowerCase().includes(event.target.value.toLowerCase()));
+      console.log(searchresult);
+
+      this.setState({article: searchresult});  
+            
+    };    
+
+    if(!article || article.length === 0) {
       articleList = "there is no book recored!";
     } else {
-      articleList = article.map((book, k) =>
-        <ArticleCard book={book} key={k} />
-      );
+
+      // articleList = article.map((book, k) =>
+      //   <ArticleTable book={book} key={k} />
+      // );
+
+      console.log(article);
+      articleList = <ArticleTable articleInfo = {article}/>;        
     }
 
     return (
@@ -55,15 +75,12 @@ class ShowarticleList extends Component {
               </Link>
               <br />
               <br />
-              <hr />
-              <form action="/action_page.php">
-               <input type="text" placeholder="Search.." name="search"/>
-                <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
+              <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
+              <hr />              
             </div>
           </div>
 
-          <div className="list">
+          <div className="l">
                 {articleList}
           </div>
         </div>

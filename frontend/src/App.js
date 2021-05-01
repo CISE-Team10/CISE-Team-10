@@ -6,7 +6,6 @@ import CreateBook from './components/CreateBook';
 //import ShowBookList from './components/ShowBookList';
 import ShowBookDetails from './components/ShowBookDetails';
 import UpdateBookInfo from './components/UpdateBookInfo';
-import search from './components/search';
 import ShowarticleList from './components/ShowArticleList';
 
 class App extends Component {
@@ -18,7 +17,6 @@ class App extends Component {
           <Route path='/create-book' component={CreateBook} />
           <Route path='/edit-book/:id' component={UpdateBookInfo} />
           <Route path='/show-book/:id' component={ShowBookDetails} />
-          <Route path='/search-bar' component={search} />
         </div>
       </Router>
     );
