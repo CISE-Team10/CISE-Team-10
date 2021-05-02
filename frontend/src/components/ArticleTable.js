@@ -34,7 +34,7 @@ const articleTable = (articleInfo) => {
     let articleList
 
     if (!articleInfo) {
-        articleList = "there is no book recored!";
+        articleList = "No articles found."; 
     }
     else {
             articleList = articleDetail['articleInfo'].map((book, k) =>
@@ -48,12 +48,12 @@ const articleTable = (articleInfo) => {
             <Table className={useStyles.table} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>title</StyledTableCell>
-                        <StyledTableCell>author</StyledTableCell>
-                        <StyledTableCell>year</StyledTableCell>
-                        <StyledTableCell>software engineering methedology</StyledTableCell>
-                        <StyledTableCell>claim</StyledTableCell>
-                        <StyledTableCell>strength of evidence</StyledTableCell>
+                        <StyledTableCell>Title</StyledTableCell>
+                        <StyledTableCell>Author</StyledTableCell>
+                        <StyledTableCell>Year</StyledTableCell>
+                        <StyledTableCell>Software Engineering Methedology</StyledTableCell>
+                        <StyledTableCell>Claim</StyledTableCell>
+                        <StyledTableCell>Strength of Evidence</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

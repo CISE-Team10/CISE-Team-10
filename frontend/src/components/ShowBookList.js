@@ -33,7 +33,7 @@ class ShowBookList extends Component {
     let bookList;
 
     if(!books) {
-      bookList = "there is no book recored!";
+      bookList = "No articles found.";
     } else {
       bookList = books.map((book, k) =>
         <BookCard book={book} key={k} />

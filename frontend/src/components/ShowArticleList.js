@@ -49,7 +49,7 @@ class ShowarticleList extends Component {
     };    
 
     if(!article || article.length === 0) {
-      articleList = "there is no book recored!";
+      articleList = "No articles found.";
     } else {
 
       // articleList = article.map((book, k) =>
