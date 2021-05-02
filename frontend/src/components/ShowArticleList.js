@@ -19,7 +19,7 @@ class ShowarticleList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/articles')
+      .get('https://seeds-2021-api.herokuapp.com/api/articles')
       .then(res => {
         this.setState({
           article: res.data,
