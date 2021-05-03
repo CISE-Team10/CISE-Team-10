@@ -3,6 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookCard from './BookCard';
+import search from './search';
 
 class ShowBookList extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class ShowBookList extends Component {
     let bookList;
 
     if(!books) {
-      bookList = "there is no book recored!";
+      bookList = "No articles found.";
     } else {
       bookList = books.map((book, k) =>
         <BookCard book={book} key={k} />
@@ -55,8 +56,11 @@ class ShowBookList extends Component {
               <br />
               <br />
               <hr />
+              <form action="/action_page.php">
+               <input type="text" placeholder="Search.." name="search"/>
+                <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
             </div>
-
           </div>
 
           <div className="list">
