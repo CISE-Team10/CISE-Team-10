@@ -66,20 +66,28 @@ class ShowarticleList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">article List</h2>
+              <h2 className="display-4 text-center">Article List</h2>
             </div>
 
             <div className="col-md-11">
               <Link to="/create-book" className="btn btn-outline-warning float-right">
-                + Add New Articles
+                + Suggest article addition
               </Link>
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
               <hr />              
             </div>
-          </div>
 
+            <div className="col-md-15">
+              <Link to="/login-screen" className="btn btn-outline-warning float-left">
+                Login
+              </Link>
+              <br />
+              <hr />              
+            </div>
+          </div>
+       
           <div className="l">
                 {articleList}
           </div>
