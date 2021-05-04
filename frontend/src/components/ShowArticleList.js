@@ -68,18 +68,33 @@ class ShowarticleList extends Component {
               <br />
               <h2 className="display-4 text-center">article List</h2>
             </div>
-
             <div className="col-md-11">
+            <br /> 
+            <body>
+            <form action="action_page.php" method="post">
+                <label for="uname"><b>Username: </b></label> 
+                <input type="text" id="username" placeholder="Choose Username"/>
+                <br />
+                <br />
+                <label for="psw"><b>Password: </b></label>
+                <input type="password" id="password" placeholer="Choose Password"/>
+                <br />
+                <br />
+                <button type="button">Click Me</button>
+                <input type="reset" value="Reset"/>
+            </form>
+              <script src="C:\Users\hasee\OneDrive\Desktop\CISE PROJECT Sprint2-3\CISE-Team-10\frontend\src\components\main.js"></script> 
+            </body>
+            <br />
+            <br />
+            <br />
               <Link to="/create-book" className="btn btn-outline-warning float-right">
-                + Add New Articles
+                + Add New Article
               </Link>
-              <br />
-              <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
               <hr />              
             </div>
           </div>
-
           <div className="l">
                 {articleList}
           </div>
