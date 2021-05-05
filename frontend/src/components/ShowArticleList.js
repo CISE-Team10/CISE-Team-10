@@ -70,22 +70,10 @@ class ShowarticleList extends Component {
             </div>
             <div className="col-md-11">
             <br /> 
-            <body>
-            <form action="action_page.php" method="post">
-                <label for="uname"><b>Username: </b></label> 
-                <input type="text" id="username" placeholder="Choose Username"/>
-                <br />
-                <br />
-                <label for="psw"><b>Password: </b></label>
-                <input type="password" id="password" placeholer="Choose Password"/>
-                <br />
-                <br />
-                <button type="button">Click Me</button>
-                <input type="reset" value="Reset"/>
-            </form>
-              <script src="C:\Users\hasee\OneDrive\Desktop\CISE PROJECT Sprint2-3\CISE-Team-10\frontend\src\components\main.js"></script> 
-            </body>
             <br />
+            <Link to="/login" className="btn btn-outline-warning float-right">
+                -Accound Login-
+              </Link>
             <br />
             <br />
               <Link to="/create-book" className="btn btn-outline-warning float-right">

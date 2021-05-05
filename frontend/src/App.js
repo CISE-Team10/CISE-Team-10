@@ -7,12 +7,16 @@ import CreateBook from './components/CreateBook';
 import ShowBookDetails from './components/ShowBookDetails';
 import UpdateBookInfo from './components/UpdateBookInfo';
 import ShowarticleList from './components/ShowArticleList';
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
+        <Route exact path="/login">
+          <Login />
+          </Route>
           <Route exact path='/' component={ShowarticleList} />
           <Route path='/create-book' component={CreateBook} />
           <Route path='/edit-book/:id' component={UpdateBookInfo} />
