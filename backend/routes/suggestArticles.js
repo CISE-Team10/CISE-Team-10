@@ -6,7 +6,7 @@ var cors = require('cors');
 //Load SuggestArticle model
 const SuggestArticle = require('../../models/SuggestArticle');
 
-router.get('/test', (req, res) => res.send('suggested articles route testing!'));
+//router.get('/test', (req, res) => res.send('suggested articles route testing!'));
 
 router.get('/', (req, res) => {
   SuggestArticle.find()
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/addNewSuggestArticle', (req, res) => {
   SuggestArticle.create(req.body)
     .then(suggestArticles => res.json({ msg: 'Suggested article added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this suggested article' }));

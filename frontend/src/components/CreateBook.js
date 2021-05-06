@@ -14,6 +14,7 @@ class CreateBook extends Component {
       software_engineering_methedology:'',
       claim:'',
       strength_of_evidence:'',
+      link:'',
     };
   }
 
@@ -27,14 +28,15 @@ class CreateBook extends Component {
     const data = {
       title: this.state.title,
       author: this.state.author,
-      year: this.state.uear,
+      year: this.state.year,
       software_engineering_methedology: this.state.software_engineering_methedology,
       claim: this.state.claim,
-      strength_of_evidence: this.state.strength_of_evidence
+      strength_of_evidence: this.state.strength_of_evidence,
+      link: this.state.link
     };
 
     axios
-      .post('https://seeds-2021-api.herokuapp.com/api/suggestedArticles', data) //not sure this works, I just changed the end from books to my collection name
+      .post('http://localhost:8082/api/suggestArticles', data)
       .then(res => {
         this.setState({
           title: '',
@@ -42,12 +44,13 @@ class CreateBook extends Component {
           year:'',
           software_engineering_methedology:'',
           claim:'',
-          strength_of_evidence:''
+          strength_of_evidence:'',
+          link:''
         })
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in SuggestArticle");
+        console.log("Error in articles");
       })
   };
 
@@ -131,6 +134,16 @@ class CreateBook extends Component {
                     name='strength_of_evidence'
                     className='form-control'
                     value={this.state.strength_of_evidence}
+                    onChange={this.onChange}
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Link'
+                    name='link'
+                    className='form-control'
+                    value={this.state.link}
                     onChange={this.onChange}
                   />
                 </div>
