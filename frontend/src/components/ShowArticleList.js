@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ArticleTable from './ArticleTable'
 import {TextField } from '@material-ui/core';
+import ArticleFilter from './ArticleFilter';
 //import search from './search';
 
 
@@ -12,7 +13,11 @@ class ShowarticleList extends Component {
     super(props);
     this.state = {
       article: [],
-      fullArticle: []
+      fullArticle: [],
+      minYear: '',
+      maxYear: '',
+      methodologies: 'a',
+      claims: '',
     };
    
   }
@@ -46,7 +51,38 @@ class ShowarticleList extends Component {
 
       this.setState({article: searchresult});  
             
-    };    
+    };
+    
+    // const methodologieshandleChangeValue = (event) => {
+    //   {
+    //     this.setState({methodologies: event.targert.value})
+    //   }
+    // };
+
+    // const claimshandleChangeValue = (event) => {
+    //   {
+    //     this.setState({claims: event.targert.value})
+    //   }
+    // };
+
+    // const minYearhandleChangeValue = (event) => {
+    //   {
+    //     this.setState({minYear: event.targert.value})
+    //   }
+    // };
+
+    // const maxYearhandleChangeValue = (event) => {
+    //   {
+    //     this.setState({maxYear: event.targert.value})
+    //   }
+    // };
+
+    const menuHandleChange = (event) => {
+      console.log(event.target.value);
+      alert(event.target.value);
+
+    }
+
 
     if(!article || article.length === 0) {
       articleList = "there is no book recored!";
@@ -76,6 +112,7 @@ class ShowarticleList extends Component {
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
+              <ArticleFilter hello="hello" onMChange={menuHandleChange}/>
               <hr />              
             </div>
           </div>
