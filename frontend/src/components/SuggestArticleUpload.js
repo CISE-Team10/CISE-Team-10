@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 
 //repurposed to be a request to add a certain article to the database
-class CreateBook extends Component {
+class SuggestArticleUpload extends Component {
   constructor() {
     super();
     this.state = {
@@ -36,7 +36,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('http://localhost:8082/api/suggestArticles', data)
+      .post('http://localhost:8082/api/articles', data)
       .then(res => {
         this.setState({
           title: '',
@@ -56,7 +56,7 @@ class CreateBook extends Component {
 
   render() {
     return (
-      <div className="CreateBook">
+      <div className="SuggestArticleUpload">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
@@ -161,4 +161,4 @@ class CreateBook extends Component {
   }
 }
 
-export default CreateBook;
+export default SuggestArticleUpload;

@@ -70,20 +70,12 @@ class ShowarticleList extends Component {
             </div>
 
             <div className="col-md-11">
-              <Link to="/create-book" className="btn btn-outline-warning float-right">
+              <Link to="/showArticleList" className="btn btn-outline-warning float-right">
                 + Suggest article addition
               </Link>
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
-              <hr />              
-            </div>
-
-            <div className="col-md-15">
-              <Link to="/login-screen" className="btn btn-outline-warning float-left">
-                Login
-              </Link>
-              <br />
               <hr />              
             </div>
           </div>
