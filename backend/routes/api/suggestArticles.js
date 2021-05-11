@@ -11,7 +11,7 @@ const SuggestArticle = require('../../models/SuggestArticle');
 router.get('/', (req, res) => {
   SuggestArticle.find()
     .then(suggestArticles => res.json(suggestArticles))
-    .catch(err => res.status(404).json({ noarticlesfound: 'No articles found' }));
+    .catch(err => res.status(404).json({ nobooksfound:'No articles found' }));
 });
 
 

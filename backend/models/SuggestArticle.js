@@ -19,6 +19,9 @@ const SuggestArticleSchema = new mongoose.Schema({
     },
     strength_of_evidence: {
         type: String
+    },
+    link: {
+        type: String
     }
 
 });

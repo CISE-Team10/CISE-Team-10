@@ -22,7 +22,7 @@ app.get('/', (req, res) => res.send('Hello world!'));
 
 // use Routes
 //app.use('/api/books', books);
-app.use('/api/articles', articles);
+app.use('/api/articles', articles),
 app.use('/api/suggestArticles', suggestArticles);
 
 const port = process.env.PORT || 8082;
