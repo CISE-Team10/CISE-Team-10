@@ -11,7 +11,7 @@ class SuggestArticleUpload extends Component {
       title: '',
       author: '',
       year:'',
-      software_engineering_methedology:'',
+      software_engineering_methodology:'',
       claim:'',
       strength_of_evidence:'',
       link:'',
@@ -29,7 +29,7 @@ class SuggestArticleUpload extends Component {
       title: this.state.title,
       author: this.state.author,
       year: this.state.year,
-      software_engineering_methedology: this.state.software_engineering_methedology,
+      software_engineering_methodology: this.state.software_engineering_methodology,
       claim: this.state.claim,
       strength_of_evidence: this.state.strength_of_evidence,
       link: this.state.link
@@ -42,7 +42,7 @@ class SuggestArticleUpload extends Component {
           title: '',
           author:'',
           year:'',
-          software_engineering_methedology:'',
+          software_engineering_methodology:'',
           claim:'',
           strength_of_evidence:'',
           link:''
@@ -109,10 +109,10 @@ class SuggestArticleUpload extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Software engineering methedology'
-                    name='software_engineering_methedology'
+                    placeholder='Software engineering methodology'
+                    name='software_engineering_methodology'
                     className='form-control'
-                    value={this.state.software_engineering_methedology}
+                    value={this.state.software_engineering_methodology}
                     onChange={this.onChange}
                   />
                 </div>

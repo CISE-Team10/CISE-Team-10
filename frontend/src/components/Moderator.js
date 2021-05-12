@@ -19,7 +19,7 @@ class Moderator extends Component {
 
   componentDidMount() {
     axios
-      .get('https://seeds-2021-api.herokuapp.com/api/suggestArticles')
+      .get('http://localhost:8082/api/suggestArticles') //no heroku for this yet, so using localhost
       .then(res => {
         this.setState({
           suggestArticle: res.data,
@@ -70,7 +70,7 @@ class Moderator extends Component {
             </div>
 
             <div className="col-md-11">
-              <Link to="/showArticleList" className="btn btn-outline-warning float-right">
+              <Link to="/" className="btn btn-outline-warning float-right">
                 + Back
               </Link>
               <br />

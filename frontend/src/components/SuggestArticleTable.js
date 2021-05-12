@@ -51,7 +51,7 @@ const SuggestArticleTable = (suggestArticleInfo) => {
                         <StyledTableCell>Title</StyledTableCell>
                         <StyledTableCell>Author</StyledTableCell>
                         <StyledTableCell>Year</StyledTableCell>
-                        <StyledTableCell>Software Engineering Methedology</StyledTableCell>
+                        <StyledTableCell>Software Engineering Methodology</StyledTableCell>
                         <StyledTableCell>Claim</StyledTableCell>
                         <StyledTableCell>Strength of Evidence</StyledTableCell>
                         <StyledTableCell>Link</StyledTableCell>
