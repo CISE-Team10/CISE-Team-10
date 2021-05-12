@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/addNewSuggestArticle', (req, res) => {
+router.post('/', (req, res) => {
   SuggestArticle.create(req.body)
     .then(suggestArticles => res.json({ msg: 'Suggested article added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this suggested article' }));

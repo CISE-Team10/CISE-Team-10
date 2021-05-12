@@ -5,16 +5,18 @@ import './App.css';
 //import ShowBookList from './components/ShowBookList';
 //import ShowBookDetails from './components/ShowBookDetails';
 //import UpdateBookInfo from './components/UpdateBookInfo';
-import ShowarticleList from './components/ShowArticleList';
+import ShowArticleList from './components/ShowArticleList';
 import SuggestArticleUpload from './components/SuggestArticleUpload';
+import Moderator from './components/Moderator';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route exact path='/' component={ShowarticleList} />
+          <Route exact path='/' component={ShowArticleList} />
           <Route path='/showArticleList' component={SuggestArticleUpload} />
+          <Route path='/moderatorPage' component={Moderator} />
         </div>
       </Router>
     );

@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 
-const BookCard = (props) => {
+const SuggestBookCard = (props) => {
     const  book  = props.book;
 
     const StyledTableCell = withStyles((theme) => ({
@@ -37,9 +37,10 @@ const BookCard = (props) => {
             <StyledTableCell align="left">{book.year}</StyledTableCell>
             <StyledTableCell align="left">{book.software_engineering_methodology}</StyledTableCell>
             <StyledTableCell align="left">{book.claim}</StyledTableCell>
-            <StyledTableCell align="left">{book.strength_of_evidence}</StyledTableCell>
+            <StyledTableCell align="left">{book.strength_of_evidence}</StyledTableCell>,
+            <StyledTableCell align="left">{book.link}</StyledTableCell>
         </StyledTableRow>
     )
 };
 
-export default BookCard;
+export default SuggestBookCard;

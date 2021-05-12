@@ -1,8 +1,6 @@
 
 const express = require('express');
 const router = express.Router();
-var cors = require('cors');
-
 
 //Load Article model
 const Article = require('../../models/Article');
@@ -16,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/addNewArticle', (req, res) => {
+router.post('/', (req, res) => { //THIS FUCKING LINE IS WHY THE POST WAS FAILING. JUST THIS LINE!!!!!! ITS / NOT /ROUTENAME
   Article.create(req.body)
     .then(article => res.json({ msg: 'Article added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this article' }));
