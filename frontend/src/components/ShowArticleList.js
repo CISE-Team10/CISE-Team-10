@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import ArticleTable from './ArticleTable'
 import {TextField } from '@material-ui/core';
 import ArticleSearchAndFilter from './ArticleSearchAndFilter';
-//import search from './search';
 
 
 class ShowarticleList extends Component {
@@ -13,11 +12,7 @@ class ShowarticleList extends Component {
     super(props);
     this.state = {
       article: [],
-      fullArticle: [],
-      minYear: '',
-      maxYear: '',
-      methodologies: 'a',
-      claims: '',
+      fullArticle: []
     };
    
   }
@@ -51,10 +46,10 @@ class ShowarticleList extends Component {
 
       this.setState({article: searchresult});  
             
-    };
-    
+    };    
+
     if(!article || article.length === 0) {
-      articleList = "there is no book recored!";
+      articleList = "No articles found.";
     } else {
 
       // articleList = article.map((book, k) =>
@@ -81,8 +76,13 @@ class ShowarticleList extends Component {
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
-              <ArticleSearchAndFilter articles={this.state.fullArticle}/>             
+              <ArticleSearchAndFilter/>
+              <hr />              
             </div>
+          </div>
+
+          <div className="l">
+                {articleList}
           </div>
         </div>
       </div>

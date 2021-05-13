@@ -60,11 +60,11 @@ export default function DialogSelect () {
     setOpen(true);
   };
 
+
   // https://stackoverflow.com/questions/41619166/react-can-a-child-component-send-value-back-to-parent-form
 
   const handleClose = () => {
     setOpen(false);
-    //this.props.onMChange('helo');
   };
 
   return (

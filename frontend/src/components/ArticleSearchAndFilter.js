@@ -90,48 +90,32 @@ function updateDisplay(method, claim, strenght, articles) {
 }
 
 
-export default function MultipleSelect(props) {
+export default function MultipleSelect() {
     const classes = useStyles();
     const theme = useTheme();
     const [methodologies, setMethodologies] = React.useState([]);
     const [claim, setClaim] = React.useState([]);
     const [strength, setStrength] = React.useState([]);
-    const [result, setResult] = React.useState(props.articles);
-    var table = <ArticleTable articleInfo={props.articles}/>;
 
 
     const methodologiesHandleChange = (event) => {
         setMethodologies(event.target.value);
-        setResult(updateDisplay(event.target.value, claim, strength, props.articles));
-        updateTable();
+
     };
 
     const claimHandleChange = (event) => {
         setClaim(event.target.value);
-        setResult(updateDisplay(methodologies, event.target.value, strength, props.articles));
-        updateTable();
+
     };
 
     const strengthHandleChange = (event) => {
         setStrength(event.target.value);
-        updateTable(updateDisplay(methodologies, claim, event.target.value, props.articles));
 
     };
-
-    const updateTable = (lists) => {
-        setResult(lists)
-
-    }
-
-
-
-    
-
 
 
     return (
         <div>
-            <div>
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-mutiple-chip-label">Methodologies</InputLabel>
                     <Select
@@ -207,12 +191,6 @@ export default function MultipleSelect(props) {
                         ))}
                     </Select>
                 </FormControl>
-            </div>
-            <br />
-            <hr />
-            <ArticleTable articleInfo={result}/>
-            <div>
-            </div>
         </div>
     );
 }
