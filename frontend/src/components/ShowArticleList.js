@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ArticleTable from './ArticleTable'
 import {TextField } from '@material-ui/core';
-//import search from './search';
+import ArticleSearchAndFilter from './ArticleSearchAndFilter';
 
 
 class ShowarticleList extends Component {
@@ -81,6 +81,7 @@ class ShowarticleList extends Component {
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
+              <ArticleSearchAndFilter/>
               <hr />              
             </div>
           </div>
