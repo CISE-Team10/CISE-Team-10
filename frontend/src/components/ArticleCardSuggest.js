@@ -37,7 +37,7 @@ const SuggestBookCard = (props) => {
             <StyledTableCell align="left">{book.year}</StyledTableCell>
             <StyledTableCell align="left">{book.software_engineering_methodology}</StyledTableCell>
             <StyledTableCell align="left">{book.claim}</StyledTableCell>
-            <StyledTableCell align="left">{book.strength_of_evidence}</StyledTableCell>,
+            <StyledTableCell align="left">{book.strength_of_evidence}</StyledTableCell>
             <StyledTableCell align="left">{book.link}</StyledTableCell>
         </StyledTableRow>
     )
