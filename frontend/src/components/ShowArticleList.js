@@ -122,12 +122,17 @@ class ShowarticleList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">article List</h2>
+              <h2 className="display-4 text-center">Article List</h2>
             </div>
-
             <div className="col-md-11">
-              <Link to="/create-book" className="btn btn-outline-warning float-right">
-                + Add New Articles
+              <Link to="/moderatorPage" className="btn btn-outline-warning float-right">
+                + Moderator 
+              </Link>
+              <br />            
+            </div>
+            <div className="col-md-11">
+              <Link to="/showArticleList" className="btn btn-outline-warning float-right">
+                + Suggest article addition
               </Link>
               <br />
               <br />
@@ -138,7 +143,7 @@ class ShowarticleList extends Component {
               <hr />              
             </div>
           </div>
-
+       
           <div className="l">
                 
                 {articleList}
