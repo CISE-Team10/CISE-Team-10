@@ -11,7 +11,7 @@ const ArticleSchema = new mongoose.Schema({
     year: {
         type: String
     },
-    software_engineering_methodology: {
+    software_engineering_practice: {
         type: String
     },
     claim:{

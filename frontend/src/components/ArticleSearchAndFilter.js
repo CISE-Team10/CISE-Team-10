@@ -36,7 +36,7 @@ const MenuProps = {
     },
 };
 
-const methodologieNames = [
+const practiceNames = [
     'TDD or Test Driven Development',
 ];
 
@@ -54,10 +54,10 @@ const strengthNames = [
     'Strongly disagree'
 ];
 
-function getStyles(name, methodologies, theme) {
+function getStyles(name, practices, theme) {
     return {
         fontWeight:
-            methodologies.indexOf(name) === -1
+            practices.indexOf(name) === -1
                 ? theme.typography.fontWeightRegular
                 : theme.typography.fontWeightMedium,
     };
@@ -66,14 +66,14 @@ function getStyles(name, methodologies, theme) {
 export default function MultipleSelect(props) {
     const classes = useStyles();
     const theme = useTheme();
-    const [methodologies, setMethodologies] = React.useState([]);
+    const [practices, setPractices] = React.useState([]);
     const [claim, setClaim] = React.useState([]);
     const [strength, setStrength] = React.useState([]);
 
 
-    const methodologiesHandleChange = (event) => {
-        setMethodologies(event.target.value);
-        props.chnageMethodologies(event.target.value)
+    const practicesHandleChange = (event) => {
+        setPractices(event.target.value);
+        props.changePractices(event.target.value)
       
 
     };
@@ -94,13 +94,13 @@ export default function MultipleSelect(props) {
     return (
         <div>
                 <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-mutiple-chip-label">Methodologies</InputLabel>
+                    <InputLabel id="demo-mutiple-chip-label">Practices</InputLabel>
                     <Select
                         labelId="demo-mutiple-chip-label"
                         id="demo-mutiple-chip"
                         multiple
-                        value={methodologies}
-                        onChange={methodologiesHandleChange}
+                        value={practices}
+                        onChange={practicesHandleChange}
                         input={<Input id="select-multiple-chip" />}
                         renderValue={(selected) => (
                             <div className={classes.chips}>
@@ -111,8 +111,8 @@ export default function MultipleSelect(props) {
                         )}
                         MenuProps={MenuProps}
                     >
-                        {methodologieNames.map((name) => (
-                            <MenuItem key={name} value={name} style={getStyles(name, methodologies, theme)}>
+                        {practiceNames.map((name) => (
+                            <MenuItem key={name} value={name} style={getStyles(name, practices, theme)}>
                                 {name}
                             </MenuItem>
                         ))}

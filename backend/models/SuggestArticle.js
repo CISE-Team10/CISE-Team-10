@@ -11,19 +11,15 @@ const SuggestArticleSchema = new mongoose.Schema({
     year: {
         type: String
     },
-    software_engineering_methodology: {
+    software_engineering_practice: {
         type: String
     },
-    claim:{
+    journal_name:{
         type: String
     },
-    strength_of_evidence: {
+    DOI: {
         type: String
     },
-    link: {
-        type: String
-    }
-
 });
 
 module.exports = SuggestArticle = mongoose.model('suggestArticle', SuggestArticleSchema);

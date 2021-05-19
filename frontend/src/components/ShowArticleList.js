@@ -14,7 +14,7 @@ class ShowarticleList extends Component {
       article: [],
       fullArticle: [],
       strength:[],
-      methodologies:[],
+      practices:[],
       claim:[],
     };
    
@@ -54,14 +54,14 @@ class ShowarticleList extends Component {
     const sortTheFilter = (articles) => {
       let simplifyArticles = [];
 
-      if(checkArrayIsNotEmpty(this.state.methodologies))
+      if(checkArrayIsNotEmpty(this.state.practices))
       {
-        this.state.methodologies.forEach(item => {
+        this.state.practices.forEach(item => {
           if (simplifyArticles.length === 0) {
-            simplifyArticles = articles.filter(one => one.software_engineering_methodology.toLowerCase() === item.toLowerCase());
+            simplifyArticles = articles.filter(one => one.software_engineering_practice.toLowerCase() === item.toLowerCase());
           }
           else {
-            simplifyArticles = simplifyArticles.concat(articles.filter(one => one.software_engineering_methodology.toLowerCase() === item.toLowerCase()));
+            simplifyArticles = simplifyArticles.concat(articles.filter(one => one.software_engineering_practice.toLowerCase() === item.toLowerCase()));
           }
         });
       }
@@ -107,7 +107,7 @@ class ShowarticleList extends Component {
       articleList = "No articles found.";
     } else {
 
-      if(this.state.strength.length !== 0 || this.state.methodologies.length !== 0 || this.state.claim.length !== 0)
+      if(this.state.strength.length !== 0 || this.state.practices.length !== 0 || this.state.claim.length !== 0)
       {
         article = sortTheFilter(article);
       }
@@ -136,8 +136,8 @@ class ShowarticleList extends Component {
               </Link>
               <br />
               <br />
-              <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
-              <ArticleSearchAndFilter chnageMethodologies={newMethodologies => this.setState({methodologies: newMethodologies})}
+              <TextField id="outlined-basic" label="Search titles..." variant="outlined" onChange={handleChange}/>
+              <ArticleSearchAndFilter changePractices={newPractices => this.setState({practices: newPractices})}
                                       changeStrength={newStrength => this.setState({strength: newStrength})}
                                       changeClaim={newClaim => this.setState({claim: newClaim})} />
               <hr />              

@@ -35,10 +35,9 @@ const SuggestBookCard = (props) => {
             </StyledTableCell>
             <StyledTableCell align="left">{book.author}</StyledTableCell>
             <StyledTableCell align="left">{book.year}</StyledTableCell>
-            <StyledTableCell align="left">{book.software_engineering_methodology}</StyledTableCell>
-            <StyledTableCell align="left">{book.claim}</StyledTableCell>
-            <StyledTableCell align="left">{book.strength_of_evidence}</StyledTableCell>
-            <StyledTableCell align="left">{book.link}</StyledTableCell>
+            <StyledTableCell align="left">{book.software_engineering_practice}</StyledTableCell>
+            <StyledTableCell align="left">{book.journal_name}</StyledTableCell>
+            <StyledTableCell align="left">{book.DOI}</StyledTableCell>
         </StyledTableRow>
     )
 };

@@ -11,10 +11,9 @@ class SuggestArticleUpload extends Component {
       title: '',
       author: '',
       year:'',
-      software_engineering_methodology:'',
-      claim:'',
-      strength_of_evidence:'',
-      link:'',
+      software_engineering_practice:'',
+      journal_name:'',
+      DOI:'',
     };
   }
 
@@ -29,10 +28,9 @@ class SuggestArticleUpload extends Component {
       title: this.state.title,
       author: this.state.author,
       year: this.state.year,
-      software_engineering_methodology: this.state.software_engineering_methodology,
-      claim: this.state.claim,
-      strength_of_evidence: this.state.strength_of_evidence,
-      link: this.state.link
+      software_engineering_practice: this.state.software_engineering_practice,
+      journal_name: this.state.journal_name,
+      DOI: this.state.DOI,
     };
 
     axios
@@ -42,10 +40,9 @@ class SuggestArticleUpload extends Component {
           title: '',
           author:'',
           year:'',
-          software_engineering_methodology:'',
-          claim:'',
-          strength_of_evidence:'',
-          link:''
+          software_engineering_practice:'',
+          journal_name:'',
+          DOI:'',
         })
         this.props.history.push('/');
       })
@@ -109,10 +106,10 @@ class SuggestArticleUpload extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Software engineering methodology'
-                    name='software_engineering_methodology'
+                    placeholder='Software engineering practice'
+                    name='software_engineering_practice'
                     className='form-control'
-                    value={this.state.software_engineering_methodology}
+                    value={this.state.software_engineering_practice}
                     onChange={this.onChange}
                   />
                 </div>
@@ -120,30 +117,20 @@ class SuggestArticleUpload extends Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Claim'
-                    name='claim'
+                    placeholder='Journal name'
+                    name='journal_name'
                     className='form-control'
-                    value={this.state.claim}
+                    value={this.state.journal_name}
                     onChange={this.onChange}
                   />
                 </div>
                 <div className='form-group'>
                   <input
                     type='text'
-                    placeholder='Strength of evidence'
-                    name='strength_of_evidence'
+                    placeholder='DOI'
+                    name='DOI'
                     className='form-control'
-                    value={this.state.strength_of_evidence}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Link'
-                    name='link'
-                    className='form-control'
-                    value={this.state.link}
+                    value={this.state.DOI}
                     onChange={this.onChange}
                   />
                 </div>

@@ -38,7 +38,7 @@ export default function DialogSelect () {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [methodologies, setMethodologies] = React.useState('');
+  const [practices, setPractices] = React.useState('');
   const [strength, setstrength] = React.useState('');
   const [value, setValue] = React.useState([2000, 2021]);
 
@@ -48,8 +48,8 @@ export default function DialogSelect () {
     setValue(newValue);
   };
 
-  const methodologiesHandleChange = (event) => {
-    setMethodologies(event.target.value);
+  const practicesHandleChange = (event) => {
+    setPractices(event.target.value);
   };
 
   const strengthHandleChange = (event) => {
@@ -89,12 +89,12 @@ export default function DialogSelect () {
               />
             </FormControl>
             <FormControl className={classes.formControl}>
-              <InputLabel id="demo-dialog-select-label">methodologies</InputLabel>
+              <InputLabel id="demo-dialog-select-label">practices</InputLabel>
               <Select
                 labelId="demo-dialog-select-label"Ten
                 id="demo-dialog-select"
-                value={methodologies}
-                onChange={methodologiesHandleChange}
+                value={practices}
+                onChange={practicesHandleChange}
                 input={<Input />}
               >
                 <MenuItem value="">
