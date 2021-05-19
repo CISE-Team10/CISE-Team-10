@@ -16,6 +16,7 @@ class ShowarticleList extends Component {
       strength:[],
       practices:[],
       claim:[],
+      year:[],
     };
    
   }
@@ -89,6 +90,8 @@ class ShowarticleList extends Component {
           }
         });
       }
+
+      alert(this.state.year[0]);
         
       return simplifyArticles;
     }
@@ -102,6 +105,17 @@ class ShowarticleList extends Component {
 
       return false;
     }
+
+    const filterDate = (articles) => {
+      let simplifyArticles = [];
+
+      simplifyArticles = articles.filter(one => this.state.year[0] < one.year && one.year < this.state.year[1]);
+      
+      return simplifyArticles;
+
+    }
+
+
     
     if(!article || article.length === 0) {
       articleList = "No articles found.";
@@ -111,6 +125,9 @@ class ShowarticleList extends Component {
       {
         article = sortTheFilter(article);
       }
+
+      article = filterDate(article);
+
 
       console.log(article);
       articleList = <ArticleTable articleInfo = {article}/>;    
@@ -139,7 +156,8 @@ class ShowarticleList extends Component {
               <TextField id="outlined-basic" label="Search titles..." variant="outlined" onChange={handleChange}/>
               <ArticleSearchAndFilter changePractices={newPractices => this.setState({practices: newPractices})}
                                       changeStrength={newStrength => this.setState({strength: newStrength})}
-                                      changeClaim={newClaim => this.setState({claim: newClaim})} />
+                                      changeClaim={newClaim => this.setState({claim: newClaim})}
+                                      changeYear={newYear => this.setState({year: newYear})}/>
               <hr />              
             </div>
           </div>
