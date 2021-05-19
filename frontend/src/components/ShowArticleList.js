@@ -12,7 +12,10 @@ class ShowarticleList extends Component {
     super(props);
     this.state = {
       article: [],
-      fullArticle: []
+      fullArticle: [],
+      strength:[],
+      methodologies:[],
+      claim:[],
     };
    
   }
@@ -46,18 +49,71 @@ class ShowarticleList extends Component {
 
       this.setState({article: searchresult});  
             
-    };    
+    };
 
+    const sortTheFilter = (articles) => {
+      let simplifyArticles = [];
+
+      if(checkArrayIsNotEmpty(this.state.methodologies))
+      {
+        this.state.methodologies.forEach(item => {
+          if (simplifyArticles.length === 0) {
+            simplifyArticles = articles.filter(one => one.software_engineering_methodology.toLowerCase() === item.toLowerCase());
+          }
+          else {
+            simplifyArticles = simplifyArticles.concat(articles.filter(one => one.software_engineering_methodology.toLowerCase() === item.toLowerCase()));
+          }
+        });
+      }
+
+      if(checkArrayIsNotEmpty(this.state.claim))
+      {
+        this.state.claim.forEach(item => {
+          if (simplifyArticles.length === 0) {
+            simplifyArticles = articles.filter(one => one.claim.toLowerCase() === item.toLowerCase());
+          }
+          else {
+            simplifyArticles = simplifyArticles.concat(articles.filter(one => one.claim.toLowerCase() === item.toLowerCase()));
+          }
+        });       
+      }
+
+      if(checkArrayIsNotEmpty(this.state.strength))
+      {
+        this.state.strength.forEach(item => {
+          if (simplifyArticles.length === 0) {
+            simplifyArticles = articles.filter(one => one.strength_of_evidence.toLowerCase() === item.toLowerCase());
+          }
+          else {
+            simplifyArticles = simplifyArticles.concat(articles.filter(one => one.strength_of_evidence.toLowerCase() === item.toLowerCase()));
+          }
+        });
+      }
+        
+      return simplifyArticles;
+    }
+
+    const checkArrayIsNotEmpty = (simplifyArray) => {
+
+      if(simplifyArray.length !== 0)
+      {
+        return true;
+      }
+
+      return false;
+    }
+    
     if(!article || article.length === 0) {
       articleList = "No articles found.";
     } else {
 
-      // articleList = article.map((book, k) =>
-      //   <ArticleTable book={book} key={k} />
-      // );
+      if(this.state.strength.length !== 0 || this.state.methodologies.length !== 0 || this.state.claim.length !== 0)
+      {
+        article = sortTheFilter(article);
+      }
 
       console.log(article);
-      articleList = <ArticleTable articleInfo = {article}/>;        
+      articleList = <ArticleTable articleInfo = {article}/>;    
     }
 
     return (
@@ -81,12 +137,15 @@ class ShowarticleList extends Component {
               <br />
               <br />
               <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
-              <ArticleSearchAndFilter/>
+              <ArticleSearchAndFilter chnageMethodologies={newMethodologies => this.setState({methodologies: newMethodologies})}
+                                      changeStrength={newStrength => this.setState({strength: newStrength})}
+                                      changeClaim={newClaim => this.setState({claim: newClaim})} />
               <hr />              
             </div>
           </div>
        
           <div className="l">
+                
                 {articleList}
           </div>
         </div>

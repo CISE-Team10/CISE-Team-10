@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -6,7 +6,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
-import ArticleTable from './ArticleTable'
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -64,33 +63,7 @@ function getStyles(name, methodologies, theme) {
     };
 }
 
-function updateDisplay(method, claim, strenght, articles) {
-    var listOfResult = [];
-    var listOfMethod = [];
-    var listOfClaim = [];
-    var listOfStrenght = [];
-
-    if (method.length !== 0) {
-
-        method.forEach(item => { listOfMethod.push(articles.filter(one => one.software_engineering_methodology.toLowerCase() === item.toLowerCase())) })
-
-    }
-    if (claim.length !== 0) {
-        claim.forEach(item => { listOfClaim.push(articles.filter(one => one.claim.toLowerCase() === item.toLowerCase())) })
-    }
-    if (strenght.length !== 0) {
-        strenght.forEach(item => { listOfStrenght.push(articles.filter(one => one.strength_of_evidence.toLowerCase() === item.toLowerCase())) })
-    }
-
-    //listOfResult.push(listOfMethod);
-    //listOfResult.push(listOfClaim);
-    listOfResult.push(listOfStrenght);
-
-    return listOfResult
-}
-
-
-export default function MultipleSelect() {
+export default function MultipleSelect(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [methodologies, setMethodologies] = React.useState([]);
@@ -100,16 +73,20 @@ export default function MultipleSelect() {
 
     const methodologiesHandleChange = (event) => {
         setMethodologies(event.target.value);
+        props.chnageMethodologies(event.target.value)
+      
 
     };
 
     const claimHandleChange = (event) => {
         setClaim(event.target.value);
+        props.changeClaim(event.target.value);
 
     };
 
     const strengthHandleChange = (event) => {
         setStrength(event.target.value);
+        props.changeStrength(event.target.value);
 
     };
 
