@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SuggestArticleTable from './SuggestArticleTable'
 import {TextField } from '@material-ui/core';
-//import search from './search';
+
 
 
 class Moderator extends Component {
@@ -51,10 +51,6 @@ class Moderator extends Component {
     if(!suggestArticle || suggestArticle.length === 0) {
       suggestArticleList = "No articles found.";
     } else {
-
-      // articleList = article.map((book, k) =>
-      //   <ArticleTable book={book} key={k} />
-      // );
 
       console.log(suggestArticle);
       suggestArticleList = <SuggestArticleTable suggestArticleInfo = {suggestArticle}/>;        

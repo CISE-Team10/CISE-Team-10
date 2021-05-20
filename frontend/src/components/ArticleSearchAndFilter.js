@@ -119,8 +119,8 @@ export default function MultipleSelect(props) {
                     input={<Input id="select-multiple-chip" />}
                     renderValue={(selected) => (
                         <div className={classes.chips}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} />
+                            {selected.map((practicesValue) => (
+                                <Chip key={practicesValue} label={practicesValue} className={classes.chip} />
                             ))}
                         </div>
                     )}
@@ -144,8 +144,8 @@ export default function MultipleSelect(props) {
                     input={<Input id="select-multiple-chip" />}
                     renderValue={(selected) => (
                         <div className={classes.chips}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} />
+                            {selected.map((claimValue) => (
+                                <Chip key={claimValue} label={claimValue} className={classes.chip} />
                             ))}
                         </div>
                     )}
@@ -169,8 +169,8 @@ export default function MultipleSelect(props) {
                     input={<Input id="select-multiple-chip" />}
                     renderValue={(selected) => (
                         <div className={classes.chips}>
-                            {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} />
+                            {selected.map((strengthValue) => (
+                                <Chip key={strengthValue} label={strengthValue} className={classes.chip} />
                             ))}
                         </div>
                     )}
