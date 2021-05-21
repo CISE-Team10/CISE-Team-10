@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -7,7 +8,6 @@ describe('Addition', () => {
     expect(2 + 2).toBe(4);
   });
 });
-
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

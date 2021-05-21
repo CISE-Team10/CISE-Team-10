@@ -2,58 +2,52 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import SuggestArticleTable from './SuggestArticleTable'
-import {TextField } from '@material-ui/core';
-
-
+import { TextField } from '@material-ui/core';
+import SuggestArticleTable from './SuggestArticleTable';
 
 class Moderator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       suggestArticle: [],
-      suggestFullArticle: []
+      suggestFullArticle: [],
     };
-   
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/suggestArticles') //no heroku for this yet, so using localhost
-      .then(res => {
+      .get('http://localhost:8082/api/suggestArticles') // no heroku for this yet, so using localhost
+      .then((res) => {
         this.setState({
           suggestArticle: res.data,
-          suggestFullArticle: res.data
-        })
+          suggestFullArticle: res.data,
+        });
       })
-      .catch(err =>{
+      .catch(() => {
         console.log('Error from Moderator');
-      })      
+      });
   }
 
-
   render() {
-    var suggestArticle = this.state.suggestArticle;
-    console.log("PrintBook: " + suggestArticle);
+    const { suggestArticle } = this.state;
+    console.log(`PrintBook: ${suggestArticle}`);
     let suggestArticleList;
 
     const handleChange = (event) => {
-      console.log(event.target.value);    
+      console.log(event.target.value);
 
-      var suggestFullArticle = this.state.suggestFullArticle;
-      var searchresult = suggestFullArticle.filter(one => one.title.toLowerCase().includes(event.target.value.toLowerCase()));
+      const { suggestFullArticle } = this.state;
+      const searchresult = suggestFullArticle.filter((one) => one.title.toLowerCase().includes(event.target.value.toLowerCase()));
       console.log(searchresult);
 
-      this.setState({suggestArticle: searchresult});  
-            
-    };    
+      this.setState({ suggestArticle: searchresult });
+    };
 
-    if(!suggestArticle || suggestArticle.length === 0) {
-      suggestArticleList = "No articles found.";
+    if (!suggestArticle || suggestArticle.length === 0) {
+      suggestArticleList = 'No articles found.';
     } else {
-
       console.log(suggestArticle);
-      suggestArticleList = <SuggestArticleTable suggestArticleInfo = {suggestArticle}/>;        
+      suggestArticleList = <SuggestArticleTable suggestArticleInfo={suggestArticle} />;
     }
 
     return (
@@ -71,13 +65,13 @@ class Moderator extends Component {
               </Link>
               <br />
               <br />
-              <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange}/>
-              <hr />              
+              <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleChange} />
+              <hr />
             </div>
           </div>
-       
+
           <div className="l">
-                {suggestArticleList}
+            {suggestArticleList}
           </div>
         </div>
       </div>

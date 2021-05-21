@@ -9,59 +9,52 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import ArticleCard from './ArticleCard';
 
-
 const articleTable = (articleInfo) => {
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
 
-    const StyledTableCell = withStyles((theme) => ({
-        head: {
-            backgroundColor: theme.palette.common.black,
-            color: theme.palette.common.white,
-        },
-        body: {
-            fontSize: 14,
-        },
-    }))(TableCell);
+  const useStyles = makeStyles({
+    table: {
+      minWidth: 700,
+    },
+  });
 
+  const articleDetail = articleInfo;
 
-    const useStyles = makeStyles({
-        table: {
-            minWidth: 700,
-        },
-    });
+  let articleList;
 
-    let articleDetail = articleInfo; 
+  if (!articleInfo) {
+    articleList = 'No articles found.';
+  } else {
+    articleList = articleDetail.articleInfo.map((book, k) => <ArticleCard book={book} key={k} />);
+  }
 
-    let articleList
-
-    if (!articleInfo) {
-        articleList = "No articles found."; 
-    }
-    else {
-            articleList = articleDetail['articleInfo'].map((book, k) =>
-            <ArticleCard book={book} key={k} />
-        );
-    }
-
-
-    return (
-        <TableContainer component={Paper}>
-            <Table className={useStyles.table} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Title</StyledTableCell>
-                        <StyledTableCell>Author</StyledTableCell>
-                        <StyledTableCell>Year</StyledTableCell>
-                        <StyledTableCell>Software Engineering Practice</StyledTableCell>
-                        <StyledTableCell>Claim</StyledTableCell>
-                        <StyledTableCell>Strength of Evidence</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {articleList}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    );
-}
+  return (
+    <TableContainer component={Paper}>
+      <Table className={useStyles.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Title</StyledTableCell>
+            <StyledTableCell>Author</StyledTableCell>
+            <StyledTableCell>Year</StyledTableCell>
+            <StyledTableCell>Software Engineering Practice</StyledTableCell>
+            <StyledTableCell>Claim</StyledTableCell>
+            <StyledTableCell>Strength of Evidence</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {articleList}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
 
 export default articleTable;
