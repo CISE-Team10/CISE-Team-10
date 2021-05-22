@@ -18,10 +18,7 @@ class SuggestArticleUpload extends Component {
   }
 
   onChange = e => {
-    if(e.target.value.match("^[a-zA-Z0-9]*$") != null)
-    {
-       this.setState({ [e.target.name]: e.target.value});
-    }
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   onSubmit = e => {
