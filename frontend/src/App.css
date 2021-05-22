@@ -24,6 +24,11 @@
   color: white;
 }
 
+.btn{
+  color: black;
+  border-color: black;
+}
+
 .App-link {
   color: #61dafb;
 }
