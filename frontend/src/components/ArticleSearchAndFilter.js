@@ -48,6 +48,7 @@ const MenuProps = {
 
 const practiceNames = [
   'TDD or Test Driven Development',
+  'Mob Programming',
 ];
 
 const claimNames = [
