@@ -45,22 +45,22 @@ it("should have button element for submit", () => {
 })
 
 
-// describe("the user populates the input", () => {
-//   const wrapper = shallow(<Submitter/>);
-//   const item = 'Hello World';
-//     beforeEach(() => {
-//       const input = wrapper.find('input').first();
-//       input.simulate('change', {
-//         target: { name: 'title',  value: item }
-//       })
-//     });
+describe("the user populates the input", () => {
+  const wrapper = shallow(<Submitter/>);
+  const item = 'Hello World';
+    beforeEach(() => {
+      const input = wrapper.find('input').first();
+      input.simulate('change', {
+        target: { name: 'title',  value: item }
+      })
+    });
 
-//     it('should update the state property `item`', () => {
-//       expect(
-//         wrapper.state().title
-//       ).toEqual(item);
-//     });
-// })
+    it('should update the state property `item`', () => {
+      expect(
+        wrapper.state().title
+      ).toEqual(item);
+    });
+})
 
 
 
