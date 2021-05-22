@@ -16,8 +16,8 @@ class Moderator extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/suggestArticles') // no heroku for this yet, so using localhost
-      .then((res) => {
+      .get('https://seeds-2021-api.herokuapp.com/api/suggestArticles') 
+      .then(res => {
         this.setState({
           suggestArticle: res.data,
           suggestFullArticle: res.data,

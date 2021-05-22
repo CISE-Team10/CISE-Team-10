@@ -18,23 +18,52 @@ class SuggestArticleUpload extends Component {
   }
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    if(e.target.value.match("^[a-zA-Z0-9]*$") != null)
+    {
+       this.setState({ [e.target.name]: e.target.value});
+    }
   };
 
   onSubmit = e => {
-    e.preventDefault();
-
-    const data = {
-      title: this.state.title,
-      author: this.state.author,
-      year: this.state.year,
-      software_engineering_practice: this.state.software_engineering_practice,
-      journal_name: this.state.journal_name,
-      DOI: this.state.DOI,
-    };
-
+    
+    //validation - are any fields empty?
+    if(!e.target.title.value)
+    {
+      alert("Title field cannot be empty.");
+    }
+    else if(!e.target.author.value)
+    {
+      alert("Author field cannot be empty.");
+    }
+    else if(!e.target.year.value)
+    {
+      alert("Year field cannot be empty.");
+    }
+    else if(!e.target.software_engineering_practice.value)
+    {
+      alert("Software engineering practice field cannot be empty.");
+    }
+    else if(!e.target.journal_name.value)
+    {
+      alert("Journal name field cannot be empty.");
+    }
+    else if(!e.target.DOI.value)
+    {
+      alert("DOI field cannot be empty.");
+    }
+    else
+    {
+      const data = {
+        title: this.state.title,
+        author: this.state.author,
+        year: this.state.year,
+        software_engineering_practice: this.state.software_engineering_practice,
+        journal_name: this.state.journal_name,
+        DOI: this.state.DOI,
+      };
+ 
     axios
-      .post('http://localhost:8082/api/suggestArticles', data)
+      .post('https://seeds-2021-api.herokuapp.com/api/suggestArticles', data)
       .then(res => {
         this.setState({
           title: '',
@@ -47,8 +76,9 @@ class SuggestArticleUpload extends Component {
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in articles");
+        console.log("Error in suggestArticles");
       })
+    }
   };
 
   render() {
@@ -82,7 +112,7 @@ class SuggestArticleUpload extends Component {
                   />
                 </div>
                 <br />
-
+                
                 <div className='form-group'>
                   <input
                     type='text'
@@ -135,8 +165,8 @@ class SuggestArticleUpload extends Component {
                     value={this.state.DOI}
                     onChange={this.onChange}
                   />
-                </div>
-
+                </div>               
+                
                 <input
                     type="submit"
                     className="btn btn-outline-warning btn-block mt-4"
