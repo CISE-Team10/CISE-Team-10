@@ -20,7 +20,7 @@ class SuggestArticleUpload extends Component {
   onChange = e => {
     if(e.target.value.match("^[a-zA-Z0-9]*$") != null)
     {
-       this.setState({ [e.target.name]: e.target.value });
+       this.setState({ [e.target.name]: e.target.value});
     }
   };
 
@@ -63,7 +63,7 @@ class SuggestArticleUpload extends Component {
       };
  
     axios
-      .post('http://localhost:8082/api/suggestArticles', data)
+      .post('https://seeds-2021-api.herokuapp.com/api/suggestArticles', data)
       .then(res => {
         this.setState({
           title: '',
@@ -76,7 +76,7 @@ class SuggestArticleUpload extends Component {
         this.props.history.push('/');
       })
       .catch(err => {
-        console.log("Error in articles");
+        console.log("Error in suggestArticles");
       })
     }
   };
