@@ -136,7 +136,7 @@ class ShowarticleList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Article List</h2>
+              <h2 className="display-4 text-center">SEEDS</h2>
             </div>
             <div className="col-md-11">
               <Link to="/moderatorPage" className="btn btn-outline-warning float-right">
@@ -144,6 +144,8 @@ class ShowarticleList extends Component {
               </Link>
               <br />
             </div>
+            <br/>
+            <br/>
             <div className="col-md-11">
               <Link to="/showArticleList" className="btn btn-outline-warning float-right">
                 + Suggest article addition

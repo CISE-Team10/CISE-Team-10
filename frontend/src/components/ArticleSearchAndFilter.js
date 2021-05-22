@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   root: {
+    margin: theme.spacing(1),
     width: 300,
   },
 }));
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value}`;
 }
 
 const ITEM_HEIGHT = 48;
@@ -180,7 +181,7 @@ export default function MultipleSelect(props) {
       <div className={classes.root}>
         <br />
         <Typography id="range-slider" gutterBottom>
-          Years range
+          Year range
         </Typography>
         <Slider
           value={value}
