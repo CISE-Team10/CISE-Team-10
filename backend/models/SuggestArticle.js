@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ArticleSchema = new mongoose.Schema({
+const SuggestArticleSchema = new mongoose.Schema({
    
     title: {
         type: String
@@ -14,13 +14,12 @@ const ArticleSchema = new mongoose.Schema({
     software_engineering_practice: {
         type: String
     },
-    claim:{
+    journal_name:{
         type: String
     },
-    strength_of_evidence: {
+    DOI: {
         type: String
-    }
-
+    },
 });
 
-module.exports = Article = mongoose.model('article', ArticleSchema);
+module.exports = SuggestArticle = mongoose.model('suggestArticle', SuggestArticleSchema);

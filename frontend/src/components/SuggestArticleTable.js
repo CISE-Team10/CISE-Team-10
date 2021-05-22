@@ -7,9 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import ArticleCard from './ArticleCard';
+import ArticleCardSuggest from './ArticleCardSuggest';
 
-const articleTable = (articleInfo) => {
+const SuggestArticleTable = (suggestArticleInfo) => {
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -26,14 +26,14 @@ const articleTable = (articleInfo) => {
     },
   });
 
-  const articleDetail = articleInfo;
+  const suggestArticleDetail = suggestArticleInfo;
 
-  let articleList;
+  let suggestArticleList;
 
-  if (!articleInfo) {
-    articleList = 'No articles found.';
+  if (!suggestArticleInfo) {
+    suggestArticleList = 'No articles found.';
   } else {
-    articleList = articleDetail.articleInfo.map((book, k) => <ArticleCard book={book} key={k} />);
+    suggestArticleList = suggestArticleDetail.suggestArticleInfo.map((book, k) => <ArticleCardSuggest book={book} key={k} />);
   }
 
   return (
@@ -45,16 +45,16 @@ const articleTable = (articleInfo) => {
             <StyledTableCell>Author</StyledTableCell>
             <StyledTableCell>Year</StyledTableCell>
             <StyledTableCell>Software Engineering Practice</StyledTableCell>
-            <StyledTableCell>Claim</StyledTableCell>
-            <StyledTableCell>Strength of Evidence</StyledTableCell>
+            <StyledTableCell>Journal Name</StyledTableCell>
+            <StyledTableCell>DOI</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {articleList}
+          {suggestArticleList}
         </TableBody>
       </Table>
     </TableContainer>
   );
 };
 
-export default articleTable;
+export default SuggestArticleTable;
