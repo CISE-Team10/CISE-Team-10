@@ -103,8 +103,7 @@ class SuggestArticleUpload extends Component {
                   <input
                     type='text'
                     placeholder='Title of the article'
-                    pattern='[A-Za-z]{3}' 
-                    id='title2000'
+                    id='titleInput'
                     name='title'
                     className='form-control'
                     value={this.state.title}
