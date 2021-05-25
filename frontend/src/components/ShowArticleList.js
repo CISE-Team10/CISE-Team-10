@@ -111,23 +111,36 @@ class ShowarticleList extends Component {
       let result = []
 
       for (let index = 0; index < option.length; index++) {
-        if (result.length === 0) {
+
+        if(option[index].length !==0)
+        {
           result = this.sortFilter(article, option[index], optionTitles[index]);
+          article = result;
         }
-        else {
-          result = result.concat(this.sortFilter(article, option[index], optionTitles[index]));
-        }
+
+        // if (result.length === 0) {
+        //   result = this.sortFilter(article, option[index], optionTitles[index]);
+        // }
+        // else {
+        //   result = result.concat(this.sortFilter(article, option[index], optionTitles[index]));
+        // }
+
+
       }
 
-      if (result.length !== 0) {
-        article = result;
+      // if (result.length !== 0) {
+      //   article = result;
+      // }
+
+      if (!article || article.length === 0) 
+      {
+        articleList = "No articles found.";
       }
-
-      article = filterDate(article);
-
-
-      console.log(article);
-      articleList = <ArticleTable articleInfo={article} />;
+      else
+      {
+        console.log(article);
+        articleList = <ArticleTable articleInfo={article} />;
+      }
     }
 
     return (
