@@ -32,6 +32,9 @@ jobs:
 
     - name: Run the tests
       run: cd frontend && npm test
+      
+    - name: Run the Linter test
+      run: cd frontend && npm run linter
 
     - name: Build
       run: cd frontend && npm run build
