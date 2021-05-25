@@ -132,6 +132,8 @@ class ShowarticleList extends Component {
       //   article = result;
       // }
 
+      article = filterDate(article);
+
       if (!article || article.length === 0) 
       {
         articleList = "No articles found.";
