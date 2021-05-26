@@ -118,19 +118,8 @@ class ShowarticleList extends Component {
           article = result;
         }
 
-        // if (result.length === 0) {
-        //   result = this.sortFilter(article, option[index], optionTitles[index]);
-        // }
-        // else {
-        //   result = result.concat(this.sortFilter(article, option[index], optionTitles[index]));
-        // }
-
-
       }
 
-      // if (result.length !== 0) {
-      //   article = result;
-      // }
 
       article = filterDate(article);
 

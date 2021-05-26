@@ -1,9 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import TestRenderer from 'react-test-renderer'; 
-import { shallow, mount} from "enzyme";
+import { shallow} from "enzyme";
 import App from './App';
 import Articles from './components/ShowArticleList';
 import Submitter from './components/SuggestArticleUpload';
