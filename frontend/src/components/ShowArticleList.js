@@ -164,9 +164,7 @@ class ShowarticleList extends Component {
               <hr />
             </div>
           </div>
-
           <div className="l">
-
             {articleList}
           </div>
         </div>
